@@ -10,20 +10,20 @@ HTML_TEMPLATE = r"""
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Birthday Saumya</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght=0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
     <style>
         :root {
             --bg-dark: #0a0514;
-            --glass-bg: rgba(255, 255, 255, 0.03);
-            --glass-border: rgba(255, 255, 255, 0.08);
+            --glass-bg: rgba(255, 255, 255, 0.04);
+            --glass-border: rgba(255, 255, 255, 0.1);
             --gold-light: #fcf6ba;
             --gold-dark: #bf953f;
             --rose-gold: #b76e79;
-            --pink-glow: rgba(255, 105, 180, 0.3);
-            --purple-glow: rgba(138, 43, 226, 0.2);
+            --pink-glow: rgba(255, 105, 180, 0.35);
+            --purple-glow: rgba(138, 43, 226, 0.25);
         }
 
         * {
@@ -39,8 +39,8 @@ HTML_TEMPLATE = r"""
             color: #ffffff;
             overflow-x: hidden;
             background-image: 
-                radial-gradient(circle at 15% 50%, var(--purple-glow), transparent 25%),
-                radial-gradient(circle at 85% 30%, var(--pink-glow), transparent 25%);
+                radial-gradient(circle at 15% 50%, var(--purple-glow), transparent 30%),
+                radial-gradient(circle at 85% 30%, var(--pink-glow), transparent 30%);
             background-attachment: fixed;
         }
 
@@ -51,11 +51,11 @@ HTML_TEMPLATE = r"""
         /* Utility Classes */
         .glass {
             background: var(--glass-bg);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border: 1px solid var(--glass-border);
             border-radius: 24px;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
         }
 
         .text-gradient-gold {
@@ -79,14 +79,14 @@ HTML_TEMPLATE = r"""
 
         @keyframes float {
             0% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(5deg); }
+            50% { transform: translateY(-20px) rotate(3deg); }
             100% { transform: translateY(0px) rotate(0deg); }
         }
 
         @keyframes pulse-glow {
-            0% { box-shadow: 0 0 20px rgba(255, 105, 180, 0.2); }
-            50% { box-shadow: 0 0 40px rgba(255, 105, 180, 0.6); }
-            100% { box-shadow: 0 0 20px rgba(255, 105, 180, 0.2); }
+            0% { box-shadow: 0 0 20px rgba(255, 105, 180, 0.3); transform: scale(1); }
+            50% { box-shadow: 0 0 40px rgba(255, 105, 180, 0.7); transform: scale(1.02); }
+            100% { box-shadow: 0 0 20px rgba(255, 105, 180, 0.3); transform: scale(1); }
         }
 
         .floating { animation: float 6s ease-in-out infinite; }
@@ -128,9 +128,9 @@ HTML_TEMPLATE = r"""
         }
 
         #hero p {
-            font-size: clamp(1.2rem, 3vw, 2rem);
+            font-size: clamp(1.1rem, 2.5vw, 1.8rem);
             color: #ccc;
-            letter-spacing: 4px;
+            letter-spacing: 3px;
             text-transform: uppercase;
         }
 
@@ -145,8 +145,8 @@ HTML_TEMPLATE = r"""
 
         .particle {
             position: absolute;
-            color: rgba(255, 255, 255, 0.2);
-            font-size: 20px;
+            color: rgba(255, 255, 255, 0.25);
+            font-size: 22px;
             animation: float 8s infinite linear;
         }
 
@@ -160,18 +160,19 @@ HTML_TEMPLATE = r"""
         }
 
         .time-box {
-            width: 100px;
+            width: 110px;
             height: 120px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .time-box:hover {
             transform: translateY(-10px);
             border-color: var(--rose-gold);
+            box-shadow: 0 10px 20px rgba(183, 110, 121, 0.2);
         }
 
         .time-box span {
@@ -190,16 +191,17 @@ HTML_TEMPLATE = r"""
 
         /* Typewriter Message */
         #special-message {
-            max-width: 800px;
+            max-width: 850px;
             text-align: center;
-            padding: 4rem 2rem;
+            padding: 4rem 1.5rem;
         }
 
         .typewriter-text {
-            font-size: 1.5rem;
-            line-height: 1.8;
-            min-height: 150px;
+            font-size: 1.4rem;
+            line-height: 1.9;
+            min-height: 180px;
             color: #eaeaea;
+            font-weight: 400;
         }
 
         .cursor {
@@ -214,6 +216,18 @@ HTML_TEMPLATE = r"""
         @keyframes blink { 50% { opacity: 0; } }
 
         /* Gallery */
+        .gallery-title-container {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        
+        .gallery-subtitle {
+            color: #b3b3b3;
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            letter-spacing: 1px;
+        }
+
         .gallery-container {
             width: 100%;
             max-width: 1200px;
@@ -222,36 +236,50 @@ HTML_TEMPLATE = r"""
             overflow-x: auto;
             padding: 2rem 1rem;
             scroll-snap-type: x mandatory;
-            scrollbar-width: none; /* Firefox */
+            scrollbar-width: none;
         }
         
-        .gallery-container::-webkit-scrollbar { display: none; } /* Chrome */
+        .gallery-container::-webkit-scrollbar { display: none; }
 
         .gallery-card {
-            min-width: 300px;
-            height: 400px;
-            border-radius: 20px;
+            min-width: 320px;
+            height: 420px;
+            border-radius: 24px;
             overflow: hidden;
             scroll-snap-align: center;
             position: relative;
             flex-shrink: 0;
-            transition: transform 0.4s;
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
         }
 
         .gallery-card:hover {
-            transform: scale(1.05);
+            transform: scale(1.03) translateY(-5px);
         }
 
         .gallery-card img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.8;
-            transition: opacity 0.3s;
+            opacity: 0.85;
+            transition: opacity 0.3s, transform 0.5s ease;
         }
 
         .gallery-card:hover img {
             opacity: 1;
+            transform: scale(1.05);
+        }
+        
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem;
+            background: linear-gradient(transparent, rgba(0,0,0,0.85));
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 500;
         }
 
         /* Final Surprise */
@@ -263,66 +291,84 @@ HTML_TEMPLATE = r"""
             background: transparent;
             border: 2px solid var(--gold-dark);
             color: var(--gold-light);
-            padding: 1.5rem 3rem;
-            font-size: 1.5rem;
+            padding: 1.5rem 3.5rem;
+            font-size: 1.4rem;
             border-radius: 50px;
             cursor: pointer;
             font-family: 'Poppins', sans-serif;
             text-transform: uppercase;
             letter-spacing: 2px;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
-            animation: pulse-glow 2s infinite;
+            animation: pulse-glow 2.5s infinite;
         }
 
         .surprise-btn:hover {
-            background: rgba(191, 149, 63, 0.1);
-            transform: scale(1.05);
+            background: rgba(191, 149, 63, 0.15);
+            border-color: #fff;
+            color: #fff;
         }
 
         #final-message {
             display: none;
             max-width: 800px;
             margin-top: 3rem;
-            padding: 3rem;
+            padding: 3.5rem;
             opacity: 0;
             transition: opacity 2s ease-in;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            box-shadow: 0 0 50px rgba(191, 149, 63, 0.15);
         }
 
         #final-message p {
-            font-size: 1.4rem;
+            font-size: 1.35rem;
             line-height: 2;
-            color: #fff;
+            color: #f0f0f0;
             margin-bottom: 1.5rem;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
 
-        /* Music Controller */
+        /* Floating Music Controller */
         .music-btn {
             position: fixed;
             bottom: 30px;
             right: 30px;
-            width: 60px;
-            height: 60px;
+            width: 65px;
+            height: 65px;
             border-radius: 50%;
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
+            background: linear-gradient(135deg, var(--rose-gold), var(--gold-dark));
+            border: none;
             color: white;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             display: flex;
             justify-content: center;
             align-items: center;
             cursor: pointer;
             z-index: 1000;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 8px 25px rgba(233, 30, 99, 0.4);
         }
 
         .music-btn:hover {
-            transform: scale(1.1);
-            background: rgba(255,255,255,0.1);
+            transform: scale(1.15) rotate(10deg);
+        }
+        
+        .music-pulse {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: inherit;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.6;
+            animation: musicRipple 2s infinite ease-out;
+        }
+        
+        @keyframes musicRipple {
+            0% { transform: scale(1); opacity: 0.6; }
+            100% { transform: scale(1.6); opacity: 0; }
         }
     </style>
 </head>
@@ -331,10 +377,12 @@ HTML_TEMPLATE = r"""
     <div class="particles" id="particles"></div>
 
     <button class="music-btn" id="musicToggle" onclick="toggleMusic()">
-        <i class="fas fa-music"></i>
+        <div class="music-pulse" id="pulseRing"></div>
+        <i class="fas fa-play" id="musicIcon"></i>
     </button>
-    <audio id="bgMusic" loop>
-        <source src="https://assets.mixkit.co/music/preview/mixkit-happy-birthday-to-you-piano-version-13.mp3" type="audio/mpeg">
+    
+    <audio id="bgMusic" loop preload="auto">
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
     </audio>
 
     <section id="hero">
@@ -362,14 +410,14 @@ HTML_TEMPLATE = r"""
             </div>
         </div>
         
-        <a href="#special-message" style="position: absolute; bottom: 40px; color: white; opacity: 0.5; font-size: 2rem;" class="floating">
+        <a href="#special-message" style="position: absolute; bottom: 40px; color: white; opacity: 0.6; font-size: 2rem;" class="floating" aria-label="Scroll Down">
             <i class="fas fa-chevron-down"></i>
         </a>
     </section>
 
     <section id="special-message">
-        <div class="glass" style="padding: 3rem; width: 100%;">
-            <h2 class="serif text-gradient-gold" style="font-size: 2.5rem; margin-bottom: 2rem;">A Message For You</h2>
+        <div class="glass" style="padding: 3.5rem 2rem; width: 100%;">
+            <h2 class="serif text-gradient-gold" style="font-size: 2.5rem; margin-bottom: 2rem;">Dil Se Ek Baat... ✨</h2>
             <div class="typewriter-text">
                 <span id="typed-text"></span><span class="cursor"></span>
             </div>
@@ -377,19 +425,27 @@ HTML_TEMPLATE = r"""
     </section>
 
     <section id="gallery-section">
-        <h2 class="serif text-gradient-rose reveal" style="font-size: 3rem; margin-bottom: 3rem; text-align: center;">Beautiful Memories</h2>
+        <div class="gallery-title-container reveal">
+            <h2 class="serif text-gradient-rose" style="font-size: 3rem;">Beautiful Memories</h2>
+            <p class="gallery-subtitle">(Swipe ya scroll karke dekho 📸)</p>
+        </div>
+        
         <div class="gallery-container reveal">
             <div class="gallery-card glass">
-                <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&q=80" alt="Celebration">
+                <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&q=80" alt="Beautiful Lights and Celebrations">
+                <div class="gallery-caption">Har pal khushiyon se bhara ho ✨</div>
             </div>
             <div class="gallery-card glass">
-                <img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=600&q=80" alt="Flowers">
+                <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80" alt="Joyful Moments">
+                <div class="gallery-caption">Aapki smile sabsay pyari hai :)</div>
             </div>
             <div class="gallery-card glass">
-                <img src="https://images.unsplash.com/photo-1558636508-e0db3814bd1d?w=600&q=80" alt="Cake">
+                <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?w=800&q=80" alt="Gold and Pink Decor">
+                <div class="gallery-caption">Always the best sister in the world 🌍</div>
             </div>
             <div class="gallery-card glass">
-                <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?w=600&q=80" alt="Lights">
+                <img src="https://images.unsplash.com/photo-1549417229-aa67d3263c09?w=800&q=80" alt="Gift Box Glitter">
+                <div class="gallery-caption">Zindagi ki har khushi aapko mile 🎉</div>
             </div>
         </div>
     </section>
@@ -402,11 +458,11 @@ HTML_TEMPLATE = r"""
         </div>
 
         <div id="final-message" class="glass">
-            <h2 class="serif text-gradient-gold" style="font-size: 3rem; margin-bottom: 1rem;">Happy Birthday, Saumya!</h2>
+            <h2 class="serif text-gradient-gold" style="font-size: 3rem; margin-bottom: 1.5rem;">Happy Birthday, Saumya! 🎂</h2>
             <p>Dear Saumya,</p>
-            <p>You are not only my sister but also one of the most precious gifts in my life. Thank you for always being there for me.</p>
-            <p>I wish you endless happiness, success, good health, and beautiful memories.</p>
-            <h3 class="text-gradient-rose" style="font-size: 2rem; margin-top: 2rem;">I Love You ❤️</h3>
+            <p>Aap sirf meri behan nahi ho, balki meri zindagi ka sabsay bada aur sabsay keemti tohfa ho. Thank you hamesha mera saath dene ke liye aur mujhe samajhne ke liye.</p>
+            <p>Main bhagwan se prarthana karta hoon ki aapko duniya ki saari khushi, kamyabi, acchi sehat aur behad khoobsurat memories milein.</p>
+            <h3 class="text-gradient-rose" style="font-size: 2.2rem; margin-top: 2rem; font-family: 'Playfair Display', serif;">Aap hamesha aise hi muskurati raho ❤️</h3>
         </div>
     </section>
 
@@ -414,22 +470,22 @@ HTML_TEMPLATE = r"""
         // 1. Particle Generator
         const particleChars = ['✨', '💖', '⭐', '💫', '🎈'];
         const particlesContainer = document.getElementById('particles');
-        for(let i=0; i<25; i++) {
+        for(let i=0; i<30; i++) {
             let el = document.createElement('div');
             el.className = 'particle';
             el.innerText = particleChars[Math.floor(Math.random() * particleChars.length)];
             el.style.left = Math.random() * 100 + 'vw';
             el.style.top = Math.random() * 100 + 'vh';
-            el.style.animationDuration = (Math.random() * 5 + 5) + 's';
-            el.style.opacity = Math.random() * 0.5 + 0.2;
+            el.style.animationDuration = (Math.random() * 5 + 6) + 's';
+            el.style.opacity = Math.random() * 0.4 + 0.3;
             particlesContainer.appendChild(el);
         }
 
-        // 2. Countdown Logic (Target: Next August 4)
+        // 2. Countdown Logic (Target: August 4)
         function updateCountdown() {
             const now = new Date();
             let currentYear = now.getFullYear();
-            let targetDate = new Date(currentYear, 7, 4); // Month is 0-indexed (7 = August)
+            let targetDate = new Date(currentYear, 7, 4); // 7 = August
             
             if (now.getTime() > targetDate.getTime()) {
                 targetDate = new Date(currentYear + 1, 7, 4);
@@ -452,68 +508,79 @@ HTML_TEMPLATE = r"""
 
         // 3. Scroll Reveal Observer
         const reveals = document.querySelectorAll('.reveal');
-        const revealOptions = { threshold: 0.15 };
-        const revealObserver = new IntersectionObserver((entries, observer) => {
+        const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if(entry.isIntersecting) {
                     entry.target.classList.add('active');
                 }
             });
-        }, revealOptions);
+        }, { threshold: 0.12 });
         reveals.forEach(reveal => revealObserver.observe(reveal));
 
-        // 4. Typewriter Effect
-        const textToType = "To the most amazing sister in the world. Growing up with you has been the greatest adventure. You bring so much light, laughter, and joy into every single day. Here is to celebrating YOU! 🎉";
+        // 4. Hinglish Typewriter Effect
+        const textToType = "Duniya ki sabsay awesome sister ko Happy Birthday! Aapke saath bitaya hua har lamha sabsay best hota hai. Aap ghar ki raunak ho aur meri sabsay acchi dost bhi. Aaj ka din aapke liye utna hi special ho jitni special aap mere liye ho! 🎉";
         let typedIndex = 0;
         let isTyping = false;
         
         const typeObserver = new IntersectionObserver((entries) => {
             if(entries[0].isIntersecting && !isTyping) {
                 isTyping = true;
-                typeText();
+                setTimeout(typeText, 500);
             }
-        }, { threshold: 0.5 });
+        }, { threshold: 0.4 });
         typeObserver.observe(document.getElementById('special-message'));
 
         function typeText() {
             if (typedIndex < textToType.length) {
                 document.getElementById('typed-text').innerHTML += textToType.charAt(typedIndex);
                 typedIndex++;
-                setTimeout(typeText, 40);
+                setTimeout(typeText, 45);
             }
         }
 
-        // 5. Music Toggle
+         // 5. Music Play/Pause Fix (Ensured Connection)
         let musicPlaying = false;
         const bgMusic = document.getElementById('bgMusic');
-        const musicBtn = document.getElementById('musicToggle');
+        const musicIcon = document.getElementById('musicIcon');
+        const pulseRing = document.getElementById('pulseRing');
         
         function toggleMusic() {
             if(musicPlaying) {
                 bgMusic.pause();
-                musicBtn.innerHTML = '<i class="fas fa-music"></i>';
+                musicIcon.className = "fas fa-play";
+                pulseRing.style.display = "none";
                 musicPlaying = false;
             } else {
-                bgMusic.play().catch(e => console.log("Audio play prevented by browser"));
-                musicBtn.innerHTML = '<i class="fas fa-pause"></i>';
-                musicPlaying = true;
+                bgMusic.play()
+                    .then(() => {
+                        musicIcon.className = "fas fa-pause";
+                        pulseRing.style.display = "block";
+                        musicPlaying = true;
+                    })
+                    .catch(e => {
+                        console.log("Audio load error or gesture issue:", e);
+                        alert("Please click anywhere on screen first, then try pressing play again!");
+                    });
             }
         }
 
-        // 6. Final Surprise & Fireworks
+        // 6. Massive Surprise & Celebration
         function triggerSurprise() {
-            // Hide button
             document.getElementById('surprise-container').style.display = 'none';
             
-            // Show Message
+            // Auto play music on surprise if not playing yet
+            if(!musicPlaying) {
+                toggleMusic();
+            }
+
             const finalMsg = document.getElementById('final-message');
             finalMsg.style.display = 'block';
             setTimeout(() => finalMsg.style.opacity = '1', 100);
 
-            // Realistic Fireworks using canvas-confetti
-            const duration = 15 * 1000;
+            // Grand Fireworks System
+            const duration = 18 * 1000;
             const animationEnd = Date.now() + duration;
-            const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+            const defaults = { startVelocity: 35, spread: 360, ticks: 70, zIndex: 1100 };
 
             function randomInRange(min, max) {
               return Math.random() * (max - min) + min;
@@ -526,15 +593,14 @@ HTML_TEMPLATE = r"""
                 return clearInterval(interval);
               }
 
-              const particleCount = 50 * (timeLeft / duration);
+              const particleCount = 65 * (timeLeft / duration);
               
-              // Fire from multiple locations
-              confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
-              confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
-            }, 250);
+              confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.4), y: Math.random() - 0.2 } }));
+              confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.6, 0.9), y: Math.random() - 0.2 } }));
+            }, 300);
             
-            // Initial blast
-            confetti({ particleCount: 150, spread: 180, origin: { y: 0.6 }, colors: ['#ffd700', '#ff6b6b', '#9b59b6'] });
+            // Blast on activation
+            confetti({ particleCount: 200, spread: 200, origin: { y: 0.6 }, colors: ['#ffd700', '#ff6b6b', '#9b59b6', '#b76e79'] });
         }
     </script>
 </body>
@@ -546,7 +612,5 @@ def home():
     return render_template_string(HTML_TEMPLATE)
 
 if __name__ == '__main__':
-    # Configured for GitHub and Render (uses environment PORT if available, defaults to 5000)
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port, debug=False)
-  
