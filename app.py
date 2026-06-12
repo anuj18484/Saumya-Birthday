@@ -432,19 +432,19 @@ HTML_TEMPLATE = r"""
         
         <div class="gallery-container reveal">
             <div class="gallery-card glass">
-                <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&q=80" alt="Beautiful Lights and Celebrations">
+                <img src="https://files.catbox.moe/sdbf1w.jpg" alt="Beautiful Lights and Celebrations">
                 <div class="gallery-caption">Har pal khushiyon se bhara ho ✨</div>
             </div>
             <div class="gallery-card glass">
-                <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80" alt="Joyful Moments">
+                <img src="https://files.catbox.moe/8i006r.jpg" alt="Joyful Moments">
                 <div class="gallery-caption">Aapki smile sabsay pyari hai :)</div>
             </div>
             <div class="gallery-card glass">
-                <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?w=800&q=80" alt="Gold and Pink Decor">
+                <img src="https://files.catbox.moe/83cz78.jpg" alt="Gold and Pink Decor">
                 <div class="gallery-caption">Always the best sister in the world 🌍</div>
             </div>
             <div class="gallery-card glass">
-                <img src="https://images.unsplash.com/photo-1549417229-aa67d3263c09?w=800&q=80" alt="Gift Box Glitter">
+                <img src="https://files.catbox.moe/8rq34r.jpg" alt="Gift Box Glitter">
                 <div class="gallery-caption">Zindagi ki har khushi aapko mile 🎉</div>
             </div>
         </div>
